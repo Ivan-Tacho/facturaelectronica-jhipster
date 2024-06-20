@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+   java_app:
+      container_name: java_app
+      image: factura_electronica_app:1.0.0
+      build: .
+      ports:
+         - 8080:8080
+      environment:
+         - DATABASE_URL=jdbc:mariadb://java_db:3306/facturaelectronicadb
+         - DATABASE_USERNAME=root
+         - DATABASE_PASSWORD=admin
+      depends_on:
+         - java_db
+         
+   java_db:
+      container_name: facturaelectronicadb-jhipster
+      image: mariadb:latest
+      ports:
+         - 3306:3306
+      environment:
+         - MYSQL_ROOT_PASSWORD=admin
+         - MYSQL_DATABASE=facturaelectronicadb

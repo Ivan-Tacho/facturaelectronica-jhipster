@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+	<meta charset="UTF-8">
+	<title>Convertir PDF a Texto</title>
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<link href="/css/login.css" rel="stylesheet" />
+	
+</head>
+
+<body style = "background-color: white;">
+
+ 	<header>
+ 		<div id="login-div" class="menu-login">
+			<h1 id="texto-iniciar" class="texto-iniciar expand">Comenzar</h1>
+			<button class="cta">
+				<i class="fa fa-chevron-down fa-1x"></i>
+			</button>
+			<div id="login-formulario" class="text hidden">
+				<div id="inicio-sesion" class="transicion">
+					<h1 class="titulo">Inicio de sesion</h1>
+					<hr style="margin-bottom: 50px;">
+					<div style="text-align: left;">
+						<label id="label-user-login" class="texto-registro">Usuario:</label><br>
+						<input id="input-user-login" type="text"> <br> 
+						<label id= "label-pass-login" class="texto-registro"style="margin-top: 15px;">Contraseña:</label><br>
+						<input id="input-pass-login" type="password" maxlength="30" > <br>
+						<span id="input-pass-login-eye" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+					</div>
+					<button id="login-boton-login" class="active-btn">Iniciar sesion</button>
+					<div style="margin-left: 4%; display:inline-block;"></div>
+					<button id="login-boton-registrarse" class="inactive-btn">Registrase</button>
+				</div>
+				
+				<div id="registro" class="move-right hidden transicion">
+				    <h1 class="titulo">Registro</h1>
+				    <div class="texto-registro">
+				    	<hr style="margin-bottom: 50px;">
+					    <div style="display: inline-block;">
+						    <label>Email:</label><br>
+						    <input type="text" id="registro-email" maxlength="200"> <br> 
+						    <label>Usuario:</label><br>
+						    <input type="text" id="registro-usuario" maxlength="100"> <br>
+					    </div>
+					    <div style="margin-left: 30px; display: inline-block;"></div>
+					    <div style="display: inline-block;">
+					    	<label>Contraseña:</label><br>
+						    <input id="registro-password" type="password" maxlength="30"> <br>
+							<span id="registro-password-eye" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+							<label>Repetir contraseña:</label><br>
+						    <input id="registro-password2" type="password" maxlength="30"> <br>
+							<span id="registro-password2-eye" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+					    </div>
+				    </div>
+				     <div>
+				    	<button id="registrarse-boton-login" class="active-btn">Iniciar sesión</button>
+				    	<div style="margin-left: 4%; display:inline-block;"></div>
+				    	<button id="registrarse-boton-registrarse" class="inactive-btn">Registrarse</button>
+				    </div>
+				</div>
+			</div>
+		</div>
+ 	</header>
+	<div class="cuerpo-pagina-principal">
+		<div style = "margin-top: 13%;"></div>
+<!-- 
+		<div class="call-text">
+			<h1>
+				Show us your <span>creative</span> side
+			</h1>
+			<button>Join the Community</button>
+		</div>
+		
+		<!-- Mensajes Pagina Principal -->
+		<h2>Subir archivo PDF para convertir a texto</h2>
+
+	<form id="formulario" enctype="multipart/form-data">
+		<input type="file" id="archivoPDF" accept=".pdf" required>
+		<button type="button" onclick="enviarArchivo()">Convertir a
+			Texto</button>
+	</form>
+		<div class="contenedorFuncionalidades">
+	   		<div class="divFuncionalidad">
+	   			<p><img src="/images/iconos/icon-prog.png" width="214" height="55"></p>
+				<h2>Gestor de facturas Online</h2>
+	   			<p>Toda la información y los datos mas relevantes sobre tus facturas electricas en un solo programa.</p>  
+	   			<br>
+	   			<p>¡Nunca más volverás a perder un documento!</p>
+	   		</div>
+	   		<div class="divFuncionalidad">
+	   			<p><img src="/images/iconos/icon-asp.png" width="214" height="55"></p>
+	   			<h2>Intuitiva y facil de usar</h2>
+	   			<p> Nuestra aplicación es tan fácil de usar que no necesitarás perder tiempo aprendiendo a utilizarla.</p>
+	   			<p>Olvídate de largos tutoriales o complicadas instrucciones.¡Gestionar tus facturas en cuestión de minutos!</p>
+	   		</div> 
+	   		<div class="divFuncionalidad">
+	   			<p><img src="/images/iconos/icon-disp.png" width="214" height="55"></p>
+	   			<h2>Desde cualquier dispositivo</h2>
+	   			<p>Accede a ella desde cualquier dispositivo y gestiona tus facturas estés donde estés.</p>
+	   			<br>
+	   			<p>Estés en la oficina, en casa o de viaje, tendrás tus facturas al alcance de tu mano.</p>
+	   		</div> 	   		
+	   	</div>
+			
+		<!-- Carrusel Inicio-->
+		<div class="container-fluid">
+				<div class="carousel carousel-showmanymoveone slide" id="itemslider">
+					<div class="carousel-inner">
+						<div class="item active" style="transition: transform 0.6s linear !important;">
+							<div>
+								<a href="#"><img
+									src="/images/digitaliza_edit.jpg"
+									class="img-responsive center-block"></a>
+							</div>
+						</div>
+						<div class="item" style="transition: transform 0.6s linear !important;">
+							<div>
+								<a href="#"><img
+									src="/images/ahorrar_edit.jpg"
+									class="img-responsive center-block"></a>
+							</div>
+						</div>
+		
+						<div class="item" style="transition: transform 0.6s linear !important;">
+							<div>
+								<a href="#"><img
+									src="/images/familia_edit.jpg"
+									class="img-responsive center-block"></a>
+							</div>
+						</div>
+		
+						<div class="item" style="transition: transform 0.6s linear !important;">
+							<div>
+								<a href="#"><img
+									src="/images/graficos_edit.jpg"
+									class="img-responsive center-block"></a>
+							</div>
+						</div>
+					</div>
+					<a class="left carousel-control" href="#itemslider" role="button" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> 
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#itemslider" role="button" data-slide="prev"> 
+						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+		</div>
+		<!-- Carrusel Fin-->
+		
+		<div style="margin-top: 3%;"></div>
+		
+		<!-- Panel compañias -->
+		<div>
+			<div>
+				<p class="titulo-compañias">Compañias disponibles:</p>
+			</div>
+			
+			<div style="margin-top: 3%;"></div>
+			
+			<div class="compañias">
+				<div>
+					<img src="images\iconos\compañias\endesa.png" class="logo-compañias">
+				</div>
+				<div>
+					<img src="images\iconos\compañias\iberdrola.png" class="logo-compañias">
+				</div>
+				<div>
+					<img src="images\iconos\compañias\naturgy.png" class="logo-compañias">
+				</div>
+				<div>
+					<img src="images\iconos\compañias\repsol.png" class="logo-compañias">
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
+<script src="/js/login.js"></script>
+	
+<br />
+<br />
+<footer class="bg-info">
+	<p class="text-center">
+		&copy; <a href="https://www.facebook.com/maruf.al.bashir"
+			target="_blank">Maruf-Al Bashir 2018</a>
+	</p>
+</footer>
+
+<div id="ventana-error" class="ventana-error">
+	<div class="ventana-error-interior">
+		<div class="ventana-error-cabecera">
+			<p class="ventana-error-cabecera-texto">Error:</p>
+			<span class="cerrar" onclick="closeModal()">&times;</span>
+		</div>
+	    <div class="ventana-error-content">
+	        <p id="mensaje-error">Error desconocido.</p>
+	    </div>
+	</div>
+</div>
+
+	<script>
+function enviarArchivo() {
+	  var archivoInput = document.getElementById('archivoPDF');
+	  var archivo = archivoInput.files[0];
+	  if (!archivo) {
+	    alert('Por favor selecciona un archivo PDF.');
+	    return;
+	  }
+
+	  if (archivo.size > 10 * 1024 * 1024) { // Verificar si el tamaño del archivo es superior a 10MB
+	    alert('El tamaño del archivo excede el límite máximo permitido de 10MB.');
+	    return;
+	  }
+
+	  var formData = new FormData();
+	  formData.append('file', archivo);
+
+	  fetch('http://localhost:8080/api/convertirPDFaTexto', {
+	    method: 'POST',
+	    body: formData
+	  })
+	  .then(response => {
+	    if (!response.ok) {
+	      throw new Error('Ocurrió un error al enviar el archivo.');
+	    }
+	    return response.text();
+	  })
+	  .then(data => {
+	    alert('El archivo fue enviado y convertido exitosamente a texto:\n' + data);
+	  })
+	  .catch(error => {
+	    alert('Error: ' + error.message);
+	  });
+	}
+
+</script>
+
+</body>
+</html>

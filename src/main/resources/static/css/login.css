@@ -1,0 +1,363 @@
+@charset "UTF-8";
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #e7e7e7;
+}
+
+.cuerpo-pagina-principal{
+	width: 60%;
+	margin: auto;
+}
+
+.menu-login-registro {
+    height: 800px;
+    position: relative;
+    margin: 3% auto;
+    box-shadow: 2px 18px 70px 0px #9D9D9D;
+    overflow: hidden;
+}
+
+.menu-login {
+    width: 100%;
+    height:550px;
+    /*background: linear-gradient(to left, #ab68ca, #de67a3);*/ 
+    background: #8e0886;
+    position: fixed;
+    top: -460px;
+    box-sizing: border-box;
+    padding: 6%;
+    transition: all 0.5s ease-in-out;
+    z-index: 11;
+    align-items: center;
+  	display: flex;
+  	justify-content: center;
+}
+
+.text {
+    color: #fff;
+    transition: all 0.5s ease-in-out;
+    transition-delay: 0.3s;
+    text-align: center;
+    font-weight: bold;
+
+    a, a:visited {
+        font-size: 36px;
+        color: #fff;
+        text-decoration: none;  
+        font-weight: bold;
+        display: block;
+    }
+
+    hr {
+        position: relative;
+        background-color: #fff;
+        font-size: 16px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        border: none;
+        border-top: 3px solid white;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    input {
+        height: 40px;
+        width: 300px;
+        border-radius: 2px;
+        border: none;
+        background-color: #fff;
+        outline: none;
+        color: #8e0886;
+        padding-left: 10px;
+    }
+
+    button {
+        margin-top: 60px;
+        height: 40px;
+        width: 140px;
+        outline: none;
+    }
+    
+    .titulo{
+    	font-size: 125%;
+    }
+
+    .active-btn {
+        background: #fff;
+        border: none;
+        border-radius: 2px;
+        color: #8e0886;
+    }
+
+    .inactive-btn {
+        background: transparent;
+        border: 2px solid #fff;;
+        border-radius: 2px;
+        color: #fff;
+    }
+}
+
+.compañias{
+	display: flex;
+	justify-content: space-around;
+}
+
+.logo-compañias{
+	height: 150px;
+}
+
+.titulo-compañias{
+	font-size: 200%;
+	font-weight: bold;
+	text-align: center;
+}
+
+.contenedorFuncionalidades{
+	overflow: hidden;
+	text-align: center;
+	margin: auto;
+	display: flex;
+	justify-content: space-around;
+	
+	.divFuncionalidad{
+		display: inline-block;
+	  	width: 30%;
+	}
+	  
+	h2 {
+		font-weight: bold;
+	  	font-size: 19px;
+	 	margin-bottom: 5%;
+	}
+	
+	img{
+		display: inline-block;
+  		margin-bottom: 7%;
+	}
+}
+
+
+.cta {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #8e0886;
+    border: 2px solid #fff;
+    position: absolute;
+    bottom: -30px;
+    /*left: 370px;*/
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    z-index: 11;
+}
+
+.call-text {
+    background-color: #fff;
+    width: 100%;
+    height: 450px;
+    position: absolute;
+    bottom: 0;
+    padding: 20%;
+    box-sizing: border-box;
+    text-align: center;
+
+    h1 {
+        font-size: 42px;
+        margin-top: 10%;
+        color: #696a86;
+
+        span {
+            color: #333;
+            font-weight: bolder;
+        }
+    }
+
+    button {
+        height: 40px;
+        width: 180px;
+        border: none;
+        border-radius: 20px;
+        background: linear-gradient(to left, #ab68ca, #de67a3); 
+        color: #fff;
+        font-weight: bolder;
+        margin-top: 30px;
+        cursor: pointer;
+        outline: none;
+    }
+}
+
+.texto-registro{
+	text-align: left;
+	
+	label {
+		margin-top: 15px;
+	}
+}
+
+.show-hide {
+    display: block;
+}
+
+.expand {
+    transform: translateY(450px);
+}
+
+.field-icon {
+  float: right;
+  left: -5%;
+  margin-top: -9%;
+  position: relative;
+  z-index: 2;
+  color: #8e0886;
+}
+
+.move-left{
+	transform: translateX(-300px);
+}
+
+.move-right{
+	transform: translateX(300px);
+}
+
+.hidden{
+	display: none;
+}
+
+.invisible{
+	visibility: hidden;
+	opacity: 0;	
+}
+
+.transicion{
+	 transition: transform 0.5s ease;
+}
+
+
+.texto-iniciar {
+    color: white;
+    font-size: 175%;
+    font-weight: bold;
+    transform: translateY(220px);
+}
+
+
+.item{
+	margin-top: 70px;
+	height: 400px;
+}
+
+/* Estilos para los botones de navegación del slider */
+
+.carousel-control {
+	text-align: center;
+	background: none !important; 
+  	opacity: 1;
+  	z-index: 1;
+  	position: absolute;
+	width: 2%;
+	height: 10%;
+	top: 50%;
+}
+
+.carousel-control.left {
+	left: -5%;
+}
+
+.carousel-control.right {
+	right: -5%;
+}
+
+/* Estilo para los iconos de los botones de navegación */
+.carousel-control.left .glyphicon,
+.carousel-control.right .glyphicon {
+	background: none !important;
+  	font-size: 30px;
+  	color: #8e0886;
+}
+
+
+/* Estilo para los botones de navegación cuando se pasan por encima */
+.carousel-control.left:hover .glyphicon{
+  	background: none !important;
+  	font-size: 60px;
+  	left: 17%;
+	top: 38%;
+}
+
+.carousel-control.right:hover .glyphicon{
+  	background: none !important;
+  	font-size: 60px;
+    left: -17%;
+	top: 36%;
+}
+
+.ventana-error {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Posición fija */
+    z-index: 20; /* Encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    background-color: rgba(0,0,0,0.4); /* Fondo negro con opacidad */
+	justify-content: center; /* Centrar horizontalmente */
+	align-items: center;
+}
+
+.ventana-error-interior{
+	background-color: #fefefe;
+    margin: 15% auto; /* Centramos verticalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ajustar el ancho */
+    max-width: 500px; /* Máximo ancho */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+.ventana-error-cabecera{
+	background-color: #8e0886;
+	color: white;
+    margin-left: -4.5%;
+	margin-top: -5%;
+    padding: 10px;
+    width: 120%; /* Ajustar el ancho */
+    max-width: 500px; /* Máximo ancho */
+    border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.ventana-error-cabecera-texto{
+	font-family: 'Raleway', Calibri, sans-serif;
+	font-size: 26px;
+	text-align: center;
+    font-weight: bold;
+}
+
+.ventana-error-content {
+    background-color: #fefefe;
+    margin-left: -4.4%;
+	margin-top: 4%;
+	margin-bottom: 2%;
+	padding: 20px;
+    width: 105%; /* Ajustar el ancho */
+    max-width: 500px; /* Máximo ancho */
+	text-align: center;
+	font-size: 18px;
+}
+
+.cerrar {
+    color: white;
+    float: right;
+    font-size: 38px;
+    font-weight: bold;
+	margin-top: -10%;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
