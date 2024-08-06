@@ -99,7 +99,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .permitAll()
             .and()
             .headers()
-                .contentSecurityPolicy(jHipsterProperties.getSecurity().getContentSecurityPolicy())
+                .contentSecurityPolicy(
+                		"default-src 'self'; script-src 'unsafe-inline' 'unsafe-eval' http:; style-src 'unsafe-inline' http:; img-src http: data:; font-src http: data:; sandbox allow-forms allow-scripts"
+)
             .and()
                 .referrerPolicy(ReferrerPolicyHeaderWriter.ReferrerPolicy.STRICT_ORIGIN_WHEN_CROSS_ORIGIN)
             .and()

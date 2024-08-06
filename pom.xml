@@ -311,6 +311,12 @@
 		    <artifactId>jakarta.servlet-api</artifactId>
 		    <scope>provided</scope>
 		</dependency>
+		<!-- Alertify -->
+		<dependency>
+		    <groupId>org.webjars</groupId>
+		    <artifactId>alertifyjs</artifactId>
+		    <version>1.13.1</version>
+		</dependency>
     </dependencies>
 
     <build>

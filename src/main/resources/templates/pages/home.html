@@ -10,12 +10,23 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
+	<script src="https://code.highcharts.com/dashboards/dashboards.js"></script>
+	
 	<link href="/css/home.css" rel="stylesheet" />
+	
+	<!-- Kendo -->
+	<link href="https://kendo.cdn.telerik.com/2023.1.117/styles/kendo.default-v2.min.css" rel="stylesheet" />
+	<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+	<script src="https://kendo.cdn.telerik.com/2023.1.117/js/kendo.ui.core.min.js"></script>
+	
+	<!-- Alertify -->
+	<script src="/webjars/alertifyjs/1.13.1/alertify.min.js"></script>
+	<link rel="stylesheet" href="/webjars/alertifyjs/1.13.1/css/alertify.min.css" />
+	<link rel="stylesheet" href="/webjars/alertifyjs/1.13.1/css/themes/default.min.css" />
 	
 </head>
 
-<body style = "background-color: white;">
-
+<body>
  	<header>
  		<div id="header-div" class="menu-login">
 			<h1 id="texto-subir-factura" class="texto-iniciar expand">Añade tu factura</h1>
@@ -69,124 +80,38 @@
 			</div>
 		</div>
  	</header>
+ 	
+ 	<div>
+	  		<div th:insert="/pages/menu" id="menu"></div>
+	  	</div>
+ 	
 	<div class="cuerpo-home">
 		<div style = "margin-top: 13%;"></div>
-<!-- 
-		<div class="call-text">
-			<h1>
-				Show us your <span>creative</span> side
-			</h1>
-			<button>Join the Community</button>
-		</div>
 		
-		<!-- Mensajes Pagina Principal -->
-		<h2>Subir archivo PDF para convertir a texto</h2>
+		<div id="dashboad">
+		    <div id="tabstrip">
+		    	<ul>
+            		<li class="k-active">Datos Personales</li>
+            		<li>Datos de mi compañía</li>
+            		<li>Datos generales</li>
+            	</ul>
+            	
+            	<div id="personales">
+            		<div id="grafico-gasto-anual" sandbox="allow-scripts allow-same-origin"></div>
+            	</div>
+            	<div id="mi-empresa">
+            	
+            	</div>
+            	<div id="generales">
 
-	<form id="formulario" enctype="multipart/form-data">
-		<input type="file" id="archivoPDF" accept=".pdf" required>
-		<button type="button" onclick="enviarArchivo()">Convertir a
-			Texto</button>
-	</form>
-		<div class="contenedorFuncionalidades">
-	   		<div class="divFuncionalidad">
-	   			<p><img src="/images/iconos/icon-prog.png" width="214" height="55"></p>
-				<h2>Gestor de facturas Online</h2>
-	   			<p>Toda la información y los datos mas relevantes sobre tus facturas electricas en un solo programa.</p>  
-	   			<br>
-	   			<p>¡Nunca más volverás a perder un documento!</p>
-	   		</div>
-	   		<div class="divFuncionalidad">
-	   			<p><img src="/images/iconos/icon-asp.png" width="214" height="55"></p>
-	   			<h2>Intuitiva y facil de usar</h2>
-	   			<p> Nuestra aplicación es tan fácil de usar que no necesitarás perder tiempo aprendiendo a utilizarla.</p>
-	   			<p>Olvídate de largos tutoriales o complicadas instrucciones.¡Gestionar tus facturas en cuestión de minutos!</p>
-	   		</div> 
-	   		<div class="divFuncionalidad">
-	   			<p><img src="/images/iconos/icon-disp.png" width="214" height="55"></p>
-	   			<h2>Desde cualquier dispositivo</h2>
-	   			<p>Accede a ella desde cualquier dispositivo y gestiona tus facturas estés donde estés.</p>
-	   			<br>
-	   			<p>Estés en la oficina, en casa o de viaje, tendrás tus facturas al alcance de tu mano.</p>
-	   		</div> 	   		
-	   	</div>
-			
-		<!-- Carrusel Inicio-->
-		<div class="container-fluid">
-				<div class="carousel carousel-showmanymoveone slide" id="itemslider">
-					<div class="carousel-inner">
-						<div class="item active" style="transition: transform 0.6s linear !important;">
-							<div>
-								<a href="#"><img
-									src="/images/digitaliza_edit.jpg"
-									class="img-responsive center-block"></a>
-							</div>
-						</div>
-						<div class="item" style="transition: transform 0.6s linear !important;">
-							<div>
-								<a href="#"><img
-									src="/images/ahorrar_edit.jpg"
-									class="img-responsive center-block"></a>
-							</div>
-						</div>
-		
-						<div class="item" style="transition: transform 0.6s linear !important;">
-							<div>
-								<a href="#"><img
-									src="/images/familia_edit.jpg"
-									class="img-responsive center-block"></a>
-							</div>
-						</div>
-		
-						<div class="item" style="transition: transform 0.6s linear !important;">
-							<div>
-								<a href="#"><img
-									src="/images/graficos_edit.jpg"
-									class="img-responsive center-block"></a>
-							</div>
-						</div>
-					</div>
-					<a class="left carousel-control" href="#itemslider" role="button" data-slide="next">
-						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> 
-						<span class="sr-only">Previous</span>
-					</a>
-					<a class="right carousel-control" href="#itemslider" role="button" data-slide="prev"> 
-						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-						<span class="sr-only">Next</span>
-					</a>
-				</div>
-		</div>
-		<!-- Carrusel Fin-->
-		
-		<div style="margin-top: 3%;"></div>
-		
-		<!-- Panel compañias -->
-		<div>
-			<div>
-				<p class="titulo-compañias">Compañias disponibles:</p>
-			</div>
-			
-			<div style="margin-top: 3%;"></div>
-			
-			<div class="compañias">
-				<div>
-					<img src="images\iconos\compañias\endesa.png" class="logo-compañias">
-				</div>
-				<div>
-					<img src="images\iconos\compañias\iberdrola.png" class="logo-compañias">
-				</div>
-				<div>
-					<img src="images\iconos\compañias\naturgy.png" class="logo-compañias">
-				</div>
-				<div>
-					<img src="images\iconos\compañias\repsol.png" class="logo-compañias">
-				</div>
-			</div>
+            	</div>
+            	
+		    </div>
 			
 		</div>
+		
+
 	</div>
-	
-<script src="/js/home.js"></script>
-	
 <br />
 <br />
 <footer class="bg-info">
@@ -208,42 +133,31 @@
 	</div>
 </div>
 
-	<script>
-function enviarArchivo() {
-	  var archivoInput = document.getElementById('archivoPDF');
-	  var archivo = archivoInput.files[0];
-	  if (!archivo) {
-	    alert('Por favor selecciona un archivo PDF.');
-	    return;
-	  }
-
-	  if (archivo.size > 10 * 1024 * 1024) { // Verificar si el tamaño del archivo es superior a 10MB
-	    alert('El tamaño del archivo excede el límite máximo permitido de 10MB.');
-	    return;
-	  }
-
-	  var formData = new FormData();
-	  formData.append('file', archivo);
-
-	  fetch('http://localhost:8080/api/convertirPDFaTexto', {
-	    method: 'POST',
-	    body: formData
-	  })
-	  .then(response => {
-	    if (!response.ok) {
-	      throw new Error('Ocurrió un error al enviar el archivo.');
-	    }
-	    return response.text();
-	  })
-	  .then(data => {
-	    alert('El archivo fue enviado y convertido exitosamente a texto:\n' + data);
-	  })
-	  .catch(error => {
-	    alert('Error: ' + error.message);
-	  });
-	}
-
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        Highcharts.chart('grafico-gasto-anual', {
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Monthly Average Temperature'
+            },
+            xAxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            },
+            yAxis: {
+                title: {
+                    text: 'Temperature (°C)'
+                }
+            },
+            series: [{
+                name: 'Tokyo',
+                data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+            }]
+        });
+    });
 </script>
 
+	<script src="/js/home.js"></script>
 </body>
 </html>

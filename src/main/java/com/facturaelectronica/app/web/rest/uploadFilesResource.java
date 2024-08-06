@@ -31,8 +31,7 @@ public class uploadFilesResource {
 
     @PostMapping(value = "convertirPDFaTexto", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public String convertirPDFaTexto(@RequestParam("file") MultipartFile archivoPDF) throws Exception{
-        System.out.println(uploadFilesService.convertPdfToText(archivoPDF, "totalenergies"));
+        //System.out.println(uploadFilesService.convertPdfToText(archivoPDF, "iberdrola"));
         return "Se recibió el archivo PDF: " + archivoPDF.getOriginalFilename();
     }
-
 }

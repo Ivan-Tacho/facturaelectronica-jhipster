@@ -54,3 +54,25 @@ document.getElementById('file-input').addEventListener('change', function(event)
         reader.readAsDataURL(file);
     }
 });
+
+// Cargar pestañas
+function cargarPestañas(){
+	$("#tabstrip").kendoTabStrip({
+        animation:  {
+            open: {
+                effects: "fadeIn"
+            }
+        }
+    });
+}
+
+$(document).ready(function(){
+	console.log('jQuery is ready');
+    if ($.fn.kendoTabStrip) {
+        console.log('KendoTabStrip is available');
+        cargarPestañas();
+    } else {
+        console.log('KendoTabStrip is not available');
+    }
+	cargarPestañas();
+});
