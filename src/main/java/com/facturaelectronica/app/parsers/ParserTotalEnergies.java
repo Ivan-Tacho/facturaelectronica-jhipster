@@ -167,7 +167,7 @@ public class ParserTotalEnergies implements Parser{
 				
 				//Consumo punta, llano y valle
 				else if(linea.toLowerCase().contains("punta:")) {
-					if(factura.getConsumoPunta() == null) {
+					if(factura.getConsumoP1() == null) {
 						pattern = Pattern.compile("punta:\\s+\\d{1,5},\\d{1,5}\\s+kwh");
 						matcher = pattern.matcher(linea.toLowerCase());
 						
@@ -176,7 +176,7 @@ public class ParserTotalEnergies implements Parser{
 							factura.setConsumoP1(Double.parseDouble(palabras.get(1).replace(",", ".")));
 						}
 					}
-					if (factura.getConsumoLlano() == null) {
+					if (factura.getConsumoP2() == null) {
 						pattern = Pattern.compile("llano:\\s+\\d{1,5},\\d{1,5}\\s+kwh");
 						matcher = pattern.matcher(linea.toLowerCase());
 
@@ -185,7 +185,7 @@ public class ParserTotalEnergies implements Parser{
 							factura.setConsumoP2(Double.parseDouble(palabras.get(1).replace(",", ".")));
 						}
 					}
-					if (factura.getConsumoValle() == null) {
+					if (factura.getConsumoP3() == null) {
 						pattern = Pattern.compile("valle:\\s+\\d{1,5},\\d{1,5}\\s+kwh");
 						matcher = pattern.matcher(linea.toLowerCase());
 
@@ -204,7 +204,7 @@ public class ParserTotalEnergies implements Parser{
 					
 					if(matcher.find()) {
 						palabras = Arrays.asList(matcher.group(0).split("\\s+"));
-						factura.setConsumoValle(Double.parseDouble(palabras.get(0).replace(",", ".")));
+						factura.setConsumoP3(Double.parseDouble(palabras.get(0).replace(",", ".")));
 						valleEncontrado = true;
 					}
 				}

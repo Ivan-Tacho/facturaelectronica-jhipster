@@ -224,7 +224,7 @@ public class ParserIberdrola implements Parser{
 				
 				if(matcher.find()) {
 					valor = matcher.group(0);
-					factura.setPotenciaMaximaPunta(Double.parseDouble(valor.replace(",", ".")));
+					factura.setPotenciaMaximaP1(Double.parseDouble(valor.replace(",", ".")));
 				}
 				
 				pattern = Pattern.compile("\\d{1,5},\\d{1,5}(?=\\skw en p2)");
@@ -232,7 +232,7 @@ public class ParserIberdrola implements Parser{
 				
 				if(matcher.find()) {
 					valor = matcher.group(0);
-					factura.setPotenciaMaximaValle(Double.parseDouble(valor.replace(",", ".")));
+					factura.setPotenciaMaximaP2(Double.parseDouble(valor.replace(",", ".")));
 				}
 			}
 			
